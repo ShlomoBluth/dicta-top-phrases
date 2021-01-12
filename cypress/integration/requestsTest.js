@@ -13,12 +13,12 @@ describe('RequestsTests',()=>{
   ' of top-phrases page',()=>{
     cy.topPhrasesRequest({
       message:'הופס יש לנו בעיה נסו שנית, או בקרו באתר מאוחר יותר',
-      delaySeconds:60*5
+      delaySeconds:60*6
     })
   })
 
   
-  it('Error message for response with status code 500 when clicking the run butten of nakdanpro page',
+  it('Error message for response with status code 500 when clicking the run butten of top-phrases page',
   ()=>{
     cy.topPhrasesRequest({
       status:500,
