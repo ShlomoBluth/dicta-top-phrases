@@ -22,7 +22,7 @@ Cypress.Commands.add('topPhrasesRequest',({url,status=200,message='',delaySecond
     delayMs:1000*delaySeconds,
     statusCode: status
   },)
-  cy.topPhrasesRun()
+  cy.topPhrasesRun('תלמוד')
   
   cy.testMessage({
     message:message,
