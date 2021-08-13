@@ -24,7 +24,7 @@ sizes.forEach((size) => {
                 })
                 cy.viewport(size)
             }
-            cy.visit('/')
+            cy.visitpage('/')
           })
         
         it('Top phrases tanakh run',()=>{
