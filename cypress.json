@@ -4,6 +4,7 @@
     "defaultCommandTimeout": 30000,
     "baseUrl":"https://top-phrases.dicta.org.il/",
     "reporter": "cypress-multi-reporters",
+    "failOnStatusCode": false,
     "reporterOptions": {
         "configFile": "reporter-config.json"
     }

@@ -1,3 +1,17 @@
+Cypress.Commands.add('visitpage',({url})=>{
+  function visitpage(status,Attempts){
+    if(status!=200){
+      expect(Attempts).lt(10)
+      cy.intercept(url).as('webreq'+Attempts)
+      cy.visit(url)
+      cy.get('@webreq'+Attempts).then(req=>{
+        visitpage(req.response.statusCode,Attempts+1)
+      })
+    }
+  }
+  visitpage(0,0)
+})
+
 Cypress.Commands.add('testMessage',({message='',delaySeconds=0})=>{
   if(delaySeconds>0){
     cy.get('[class*="spinner"]',{timeout:1000*delaySeconds}).should('not.exist')

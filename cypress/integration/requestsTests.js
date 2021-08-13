@@ -25,7 +25,7 @@ sizes.forEach((size) => {
         })
         cy.viewport(size)
       }
-      cy.visit('/')
+      cy.visitpage('/')
     })
   
     it('Error message for response with a delay of 6 minutes when clicking the run butten'+
