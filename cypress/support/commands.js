@@ -1,7 +1,7 @@
 Cypress.Commands.add('visitpage',({url})=>{
   function visitpage(status,Attempts){
     if(status!=200){
-      expect(Attempts).lt(10)
+      cy.wrap(Attempts).should('be.lt', 10)
       cy.intercept(url).as('webreq'+Attempts)
       cy.visit(url)
       cy.get('@webreq'+Attempts).then(req=>{
