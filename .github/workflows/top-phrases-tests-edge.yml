@@ -30,7 +30,7 @@ jobs:
     - name: Run edge tests
       run: npx cypress run --browser edge --spec ./cypress/integration/basicTests.js
 
-     - name: Run edge requests tests
+    - name: Run edge requests tests
       run: npx cypress run --browser edge --spec ./cypress/integration/requestsTests.js
       if: ${{ always() }}
 
