@@ -3,14 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "cy:run": "npm run runChrome & npm run runFirefox",
-    "cy:runSpec": "npm run runChrome -- --spec %npm_config_spec% & npm run runFirefox -- --spec %npm_config_spec%",
-    "runChrome": "cypress run --browser chrome  --record --key b96334bf-f532-41be-8a6d-ae958ca63c3e",
-    "runFirefox": "cypress run --browser firefox  --record --key b96334bf-f532-41be-8a6d-ae958ca63c3e",
-    "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json",
-    "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
-  },
+  "scripts": { },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ShlomoBluth/dicta-top-phrases.git"
