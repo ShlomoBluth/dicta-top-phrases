@@ -2,30 +2,38 @@
 
 //run basic tests on top phrases
 
-let sizes = ['iphone-x',[1000, 660]]
+const urls = new Map();
+urls.set('live',Cypress.env('LIVE_URL'))
+//urls.set('dev',Cypress.env('DEV_URL')) 
+
+const sizes= new Map();
+sizes.set('desktop',[1000, 660])
+sizes.set('mobile','iphone-x')
 
 
+urls.forEach((urlValue,urlKey)=>{
 
-sizes.forEach((size) => {
+    sizes.forEach((sizeValue,sizeKey) => {
 
-    describe('basicTests',()=>{
+    
+        describe('toolTests '+urlKey+' '+sizeKey,()=>{
+    
+            beforeEach(() => {
+                cy.screenSize({size:sizeValue})
+                cy.visitpage({url:urlValue})
+            })
 
-        beforeEach(() => {
-            cy.screenSize({size:size})
-            cy.visitpage({url:'/'})
-          })
+            it('Top phrases tanakh run',()=>{
+                cy.topPhrasesRun('תנ"ך')
+                cy.get('.frame-area').should('contain','ויאמר משה')
+            })
         
-        it('Top phrases tanakh run',()=>{
-            cy.topPhrasesRun('תנ"ך')
-            cy.get('.frame-area').should('contain','ויאמר משה')
-        })
-    
-        it('Top phrases talmud run',()=>{
-            cy.topPhrasesRun('תלמוד')
-            cy.get('.frame-area').should('contain','משה רבינו')
-        })
-    
+            it('Top phrases talmud run',()=>{
+                cy.topPhrasesRun('תלמוד')
+                cy.get('.frame-area').should('contain','משה רבינו')
+            })
+        
+        })   
     })
-
 })
 
