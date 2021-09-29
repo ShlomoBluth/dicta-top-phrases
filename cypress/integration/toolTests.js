@@ -25,11 +25,13 @@ urls.forEach((urlValue,urlKey)=>{
 
             it('Top phrases tanakh run',()=>{
                 cy.topPhrasesRun('תנ"ך')
+                cy.get('[class*="spinner"]',{timeout:360000}).should('not.exist')
                 cy.get('.frame-area').should('contain','ויאמר משה')
             })
         
             it('Top phrases talmud run',()=>{
                 cy.topPhrasesRun('תלמוד')
+                cy.get('[class*="spinner"]',{timeout:360000}).should('not.exist')
                 cy.get('.frame-area').should('contain','משה רבינו')
             })
         
