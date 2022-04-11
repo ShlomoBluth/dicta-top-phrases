@@ -26,7 +26,7 @@ Cypress.Commands.add('testMessage',({message='',delaySeconds=0})=>{
 Cypress.Commands.add('topPhrasesRun',(collectionName)=>{
   cy.get('a[class*="welcome-close-link"]').click({force: true})
   cy.contains(collectionName).siblings('input').click({force: true})
-  cy.get('input[id=search-input]').type('משה')
+  cy.get('input[id=search-input]').type('שיר')
   cy.get('i[class="fas fa-search"]').click()
   
 })
