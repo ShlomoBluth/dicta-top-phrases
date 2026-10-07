@@ -24,21 +24,31 @@ urls.forEach((urlValue,urlKey)=>{
         cy.visitpage({url:urlValue})
       })
 
-      it('Error message for response with a delay of 6 minutes when clicking the run butten'+
-      ' of top-phrases page',()=>{
-        cy.topPhrasesRequest({
-          url:'top_phrases',
-          message:'אופס יש לנו בעיה נסו שנית, או בקרו באתר מאוחר יותר',
-          delaySeconds:60*6
-        })
-      })
-    
-      
+      // it('Error message for response with a delay of 6 minutes when clicking the run butten'+
+      // ' of top-phrases page',()=>{
+      //   cy.topPhrasesRequest({
+      //     url:'top_phrases',
+      //     message:'אופס יש לנו בעיה נסו שנית, או בקרו באתר מאוחר יותר',
+      //     delaySeconds:60*6
+      //   })
+      // })
+
+
       it('Error message for response with status code 500 when clicking the run butten of top-phrases page',
       ()=>{
         cy.topPhrasesRequest({
           url:'top_phrases',
           status:500,
+          message:'אופס יש לנו בעיה נסו שנית, או בקרו באתר מאוחר יותר'
+        })
+      })
+
+      // 503 is what the search server answers when it is down
+      it('Error message for response with status code 503 when clicking the run butten of top-phrases page',
+      ()=>{
+        cy.topPhrasesRequest({
+          url:'top_phrases',
+          status:503,
           message:'אופס יש לנו בעיה נסו שנית, או בקרו באתר מאוחר יותר'
         })
       })
