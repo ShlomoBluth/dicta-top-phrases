@@ -19,7 +19,12 @@ Cypress.Commands.add('testMessage',({message='',delaySeconds=0})=>{
     cy.get('[class*="spinner"]').should('not.exist')
   }
   if(message.length>0){
-    cy.contains(message).should('exist')
+    if(delaySeconds>0){
+      // with a delay the spinner can go away before the message shows, so give the message the full delay
+      cy.contains(message,{timeout:1000*delaySeconds+30000}).should('exist')
+    }else{
+      cy.contains(message).should('exist')
+    }
   }
 })
 
